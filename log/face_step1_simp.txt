@@ -1,0 +1,356 @@
+Log file created at: 2016/12/14 22:10:53
+Running on machine: lnxer3.localdomain
+
+I1214 22:10:55.674460 32649 caffe.cpp:251] Starting Optimization
+I1214 22:10:55.674540 32649 solver.cpp:279] Solving Face
+I1214 22:10:55.674554 32649 solver.cpp:280] Learning Rate Policy: step
+I1214 22:10:55.681211 32649 solver.cpp:337] Iteration 0, Testing net (#0)
+I1214 22:10:55.681277 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:10:56.670244 32649 solver.cpp:228] Iteration 0, loss = 44.0649
+I1214 22:10:56.670358 32649 sgd_solver.cpp:106] Iteration 0, lr = 0.0001
+I1214 22:11:14.067912 32649 solver.cpp:228] Iteration 20, loss = 21.3642
+I1214 22:11:14.068007 32649 sgd_solver.cpp:106] Iteration 20, lr = 0.0001
+I1214 22:11:31.622015 32649 solver.cpp:228] Iteration 40, loss = 11.5297
+I1214 22:11:31.622268 32649 sgd_solver.cpp:106] Iteration 40, lr = 0.0001
+I1214 22:11:49.188329 32649 solver.cpp:228] Iteration 60, loss = 6.36119
+I1214 22:11:49.188457 32649 sgd_solver.cpp:106] Iteration 60, lr = 0.0001
+I1214 22:12:06.745393 32649 solver.cpp:228] Iteration 80, loss = 4.60128
+I1214 22:12:06.745641 32649 sgd_solver.cpp:106] Iteration 80, lr = 0.0001
+I1214 22:12:24.310925 32649 solver.cpp:228] Iteration 100, loss = 3.58395
+I1214 22:12:24.311012 32649 sgd_solver.cpp:106] Iteration 100, lr = 0.0001
+I1214 22:12:41.881600 32649 solver.cpp:228] Iteration 120, loss = 3.12276
+I1214 22:12:41.881834 32649 sgd_solver.cpp:106] Iteration 120, lr = 0.0001
+I1214 22:12:59.447919 32649 solver.cpp:228] Iteration 140, loss = 2.83513
+I1214 22:12:59.448021 32649 sgd_solver.cpp:106] Iteration 140, lr = 0.0001
+I1214 22:13:17.011417 32649 solver.cpp:228] Iteration 160, loss = 2.70637
+I1214 22:13:17.011644 32649 sgd_solver.cpp:106] Iteration 160, lr = 0.0001
+I1214 22:13:34.578189 32649 solver.cpp:228] Iteration 180, loss = 2.34377
+I1214 22:13:34.578286 32649 sgd_solver.cpp:106] Iteration 180, lr = 0.0001
+I1214 22:13:51.280917 32649 solver.cpp:337] Iteration 200, Testing net (#0)
+I1214 22:13:51.281100 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:13:52.133500 32649 solver.cpp:228] Iteration 200, loss = 2.20846
+I1214 22:13:52.133579 32649 sgd_solver.cpp:106] Iteration 200, lr = 0.0001
+I1214 22:14:09.700134 32649 solver.cpp:228] Iteration 220, loss = 2.30403
+I1214 22:14:09.700227 32649 sgd_solver.cpp:106] Iteration 220, lr = 0.0001
+I1214 22:14:27.260192 32649 solver.cpp:228] Iteration 240, loss = 2.27937
+I1214 22:14:27.260409 32649 sgd_solver.cpp:106] Iteration 240, lr = 0.0001
+I1214 22:14:44.805361 32649 solver.cpp:228] Iteration 260, loss = 2.07112
+I1214 22:14:44.805464 32649 sgd_solver.cpp:106] Iteration 260, lr = 0.0001
+I1214 22:15:02.351610 32649 solver.cpp:228] Iteration 280, loss = 1.93963
+I1214 22:15:02.351814 32649 sgd_solver.cpp:106] Iteration 280, lr = 0.0001
+I1214 22:15:19.906488 32649 solver.cpp:228] Iteration 300, loss = 2.08187
+I1214 22:15:19.906585 32649 sgd_solver.cpp:106] Iteration 300, lr = 0.0001
+I1214 22:15:37.461930 32649 solver.cpp:228] Iteration 320, loss = 1.96847
+I1214 22:15:37.462194 32649 sgd_solver.cpp:106] Iteration 320, lr = 0.0001
+I1214 22:15:55.021953 32649 solver.cpp:228] Iteration 340, loss = 1.93408
+I1214 22:15:55.022032 32649 sgd_solver.cpp:106] Iteration 340, lr = 0.0001
+I1214 22:16:12.589309 32649 solver.cpp:228] Iteration 360, loss = 1.87569
+I1214 22:16:12.589483 32649 sgd_solver.cpp:106] Iteration 360, lr = 0.0001
+I1214 22:16:30.159227 32649 solver.cpp:228] Iteration 380, loss = 1.88071
+I1214 22:16:30.159308 32649 sgd_solver.cpp:106] Iteration 380, lr = 0.0001
+I1214 22:16:46.868610 32649 solver.cpp:337] Iteration 400, Testing net (#0)
+I1214 22:16:46.868852 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:16:47.720304 32649 solver.cpp:228] Iteration 400, loss = 1.905
+I1214 22:16:47.720402 32649 sgd_solver.cpp:106] Iteration 400, lr = 0.0001
+I1214 22:17:05.286161 32649 solver.cpp:228] Iteration 420, loss = 1.8513
+I1214 22:17:05.286268 32649 sgd_solver.cpp:106] Iteration 420, lr = 0.0001
+I1214 22:17:22.842834 32649 solver.cpp:228] Iteration 440, loss = 1.87007
+I1214 22:17:22.843006 32649 sgd_solver.cpp:106] Iteration 440, lr = 0.0001
+I1214 22:17:40.397310 32649 solver.cpp:228] Iteration 460, loss = 1.85839
+I1214 22:17:40.397397 32649 sgd_solver.cpp:106] Iteration 460, lr = 0.0001
+I1214 22:17:57.955521 32649 solver.cpp:228] Iteration 480, loss = 1.89232
+I1214 22:17:57.955749 32649 sgd_solver.cpp:106] Iteration 480, lr = 0.0001
+I1214 22:18:14.653944 32649 solver.cpp:454] Snapshotting to binary proto file ../models/center/center_fixed_iter_500.caffemodel
+I1214 22:18:15.716954 32649 sgd_solver.cpp:273] Snapshotting solver state to binary proto file ../models/center/center_fixed_iter_500.solverstate
+I1214 22:18:16.713223 32649 solver.cpp:228] Iteration 500, loss = 1.80682
+I1214 22:18:16.713305 32649 sgd_solver.cpp:106] Iteration 500, lr = 0.0001
+I1214 22:18:34.267093 32649 solver.cpp:228] Iteration 520, loss = 1.86001
+I1214 22:18:34.267340 32649 sgd_solver.cpp:106] Iteration 520, lr = 0.0001
+I1214 22:18:51.810878 32649 solver.cpp:228] Iteration 540, loss = 1.84414
+I1214 22:18:51.810972 32649 sgd_solver.cpp:106] Iteration 540, lr = 0.0001
+I1214 22:19:09.377068 32649 solver.cpp:228] Iteration 560, loss = 1.7869
+I1214 22:19:09.377261 32649 sgd_solver.cpp:106] Iteration 560, lr = 0.0001
+I1214 22:19:26.942621 32649 solver.cpp:228] Iteration 580, loss = 1.77878
+I1214 22:19:26.942701 32649 sgd_solver.cpp:106] Iteration 580, lr = 0.0001
+I1214 22:19:43.664119 32649 solver.cpp:337] Iteration 600, Testing net (#0)
+I1214 22:19:43.664335 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:19:44.516088 32649 solver.cpp:228] Iteration 600, loss = 1.83102
+I1214 22:19:44.516196 32649 sgd_solver.cpp:106] Iteration 600, lr = 0.0001
+I1214 22:20:02.062985 32649 solver.cpp:228] Iteration 620, loss = 1.7501
+I1214 22:20:02.063077 32649 sgd_solver.cpp:106] Iteration 620, lr = 0.0001
+I1214 22:20:19.629648 32649 solver.cpp:228] Iteration 640, loss = 1.78783
+I1214 22:20:19.629848 32649 sgd_solver.cpp:106] Iteration 640, lr = 0.0001
+I1214 22:20:37.187052 32649 solver.cpp:228] Iteration 660, loss = 1.79052
+I1214 22:20:37.187125 32649 sgd_solver.cpp:106] Iteration 660, lr = 0.0001
+I1214 22:20:54.750337 32649 solver.cpp:228] Iteration 680, loss = 1.86566
+I1214 22:20:54.750588 32649 sgd_solver.cpp:106] Iteration 680, lr = 0.0001
+I1214 22:21:12.308334 32649 solver.cpp:228] Iteration 700, loss = 1.7495
+I1214 22:21:12.308428 32649 sgd_solver.cpp:106] Iteration 700, lr = 0.0001
+I1214 22:21:29.867018 32649 solver.cpp:228] Iteration 720, loss = 1.78612
+I1214 22:21:29.867266 32649 sgd_solver.cpp:106] Iteration 720, lr = 0.0001
+I1214 22:21:47.435631 32649 solver.cpp:228] Iteration 740, loss = 1.81884
+I1214 22:21:47.435715 32649 sgd_solver.cpp:106] Iteration 740, lr = 0.0001
+I1214 22:22:04.991245 32649 solver.cpp:228] Iteration 760, loss = 1.67252
+I1214 22:22:04.991468 32649 sgd_solver.cpp:106] Iteration 760, lr = 0.0001
+I1214 22:22:22.547292 32649 solver.cpp:228] Iteration 780, loss = 1.74797
+I1214 22:22:22.547382 32649 sgd_solver.cpp:106] Iteration 780, lr = 0.0001
+I1214 22:22:39.259269 32649 solver.cpp:337] Iteration 800, Testing net (#0)
+I1214 22:22:39.259485 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:22:40.111698 32649 solver.cpp:228] Iteration 800, loss = 1.73976
+I1214 22:22:40.111790 32649 sgd_solver.cpp:106] Iteration 800, lr = 0.0001
+I1214 22:22:57.667783 32649 solver.cpp:228] Iteration 820, loss = 1.7277
+I1214 22:22:57.667875 32649 sgd_solver.cpp:106] Iteration 820, lr = 0.0001
+I1214 22:23:15.221869 32649 solver.cpp:228] Iteration 840, loss = 1.69219
+I1214 22:23:15.222112 32649 sgd_solver.cpp:106] Iteration 840, lr = 0.0001
+I1214 22:23:32.788571 32649 solver.cpp:228] Iteration 860, loss = 1.74975
+I1214 22:23:32.788689 32649 sgd_solver.cpp:106] Iteration 860, lr = 0.0001
+I1214 22:23:50.351030 32649 solver.cpp:228] Iteration 880, loss = 1.7921
+I1214 22:23:50.351207 32649 sgd_solver.cpp:106] Iteration 880, lr = 0.0001
+I1214 22:24:07.900760 32649 solver.cpp:228] Iteration 900, loss = 1.785
+I1214 22:24:07.900851 32649 sgd_solver.cpp:106] Iteration 900, lr = 0.0001
+I1214 22:24:25.455720 32649 solver.cpp:228] Iteration 920, loss = 1.71286
+I1214 22:24:25.455960 32649 sgd_solver.cpp:106] Iteration 920, lr = 0.0001
+I1214 22:24:43.016679 32649 solver.cpp:228] Iteration 940, loss = 1.7705
+I1214 22:24:43.016773 32649 sgd_solver.cpp:106] Iteration 940, lr = 0.0001
+I1214 22:25:00.567791 32649 solver.cpp:228] Iteration 960, loss = 1.68406
+I1214 22:25:00.567957 32649 sgd_solver.cpp:106] Iteration 960, lr = 0.0001
+I1214 22:25:18.121091 32649 solver.cpp:228] Iteration 980, loss = 1.66659
+I1214 22:25:18.121173 32649 sgd_solver.cpp:106] Iteration 980, lr = 0.0001
+I1214 22:25:34.821355 32649 solver.cpp:454] Snapshotting to binary proto file ../models/center/center_fixed_iter_1000.caffemodel
+I1214 22:25:35.833472 32649 sgd_solver.cpp:273] Snapshotting solver state to binary proto file ../models/center/center_fixed_iter_1000.solverstate
+I1214 22:25:36.105362 32649 solver.cpp:337] Iteration 1000, Testing net (#0)
+I1214 22:25:36.105423 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:25:36.829591 32649 solver.cpp:228] Iteration 1000, loss = 1.69582
+I1214 22:25:36.829679 32649 sgd_solver.cpp:106] Iteration 1000, lr = 0.0001
+I1214 22:25:54.378376 32649 solver.cpp:228] Iteration 1020, loss = 1.76105
+I1214 22:25:54.378491 32649 sgd_solver.cpp:106] Iteration 1020, lr = 0.0001
+I1214 22:26:11.924654 32649 solver.cpp:228] Iteration 1040, loss = 1.69762
+I1214 22:26:11.924888 32649 sgd_solver.cpp:106] Iteration 1040, lr = 0.0001
+I1214 22:26:29.477138 32649 solver.cpp:228] Iteration 1060, loss = 1.65281
+I1214 22:26:29.477238 32649 sgd_solver.cpp:106] Iteration 1060, lr = 0.0001
+I1214 22:26:47.034360 32649 solver.cpp:228] Iteration 1080, loss = 1.70994
+I1214 22:26:47.034555 32649 sgd_solver.cpp:106] Iteration 1080, lr = 0.0001
+I1214 22:27:04.590258 32649 solver.cpp:228] Iteration 1100, loss = 1.719
+I1214 22:27:04.590348 32649 sgd_solver.cpp:106] Iteration 1100, lr = 0.0001
+I1214 22:27:22.147850 32649 solver.cpp:228] Iteration 1120, loss = 1.70253
+I1214 22:27:22.148105 32649 sgd_solver.cpp:106] Iteration 1120, lr = 0.0001
+I1214 22:27:39.697691 32649 solver.cpp:228] Iteration 1140, loss = 1.7032
+I1214 22:27:39.697787 32649 sgd_solver.cpp:106] Iteration 1140, lr = 0.0001
+I1214 22:27:57.263837 32649 solver.cpp:228] Iteration 1160, loss = 1.67681
+I1214 22:27:57.264091 32649 sgd_solver.cpp:106] Iteration 1160, lr = 0.0001
+I1214 22:28:14.838594 32649 solver.cpp:228] Iteration 1180, loss = 1.68191
+I1214 22:28:14.838685 32649 sgd_solver.cpp:106] Iteration 1180, lr = 0.0001
+I1214 22:28:31.557575 32649 solver.cpp:337] Iteration 1200, Testing net (#0)
+I1214 22:28:31.557776 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:28:32.410100 32649 solver.cpp:228] Iteration 1200, loss = 1.77301
+I1214 22:28:32.410187 32649 sgd_solver.cpp:106] Iteration 1200, lr = 0.0001
+I1214 22:28:49.979030 32649 solver.cpp:228] Iteration 1220, loss = 1.73706
+I1214 22:28:49.979116 32649 sgd_solver.cpp:106] Iteration 1220, lr = 0.0001
+I1214 22:29:07.534806 32649 solver.cpp:228] Iteration 1240, loss = 1.70336
+I1214 22:29:07.535048 32649 sgd_solver.cpp:106] Iteration 1240, lr = 0.0001
+I1214 22:29:25.094601 32649 solver.cpp:228] Iteration 1260, loss = 1.62998
+I1214 22:29:25.094676 32649 sgd_solver.cpp:106] Iteration 1260, lr = 0.0001
+I1214 22:29:42.660748 32649 solver.cpp:228] Iteration 1280, loss = 1.66698
+I1214 22:29:42.660918 32649 sgd_solver.cpp:106] Iteration 1280, lr = 0.0001
+I1214 22:30:00.219246 32649 solver.cpp:228] Iteration 1300, loss = 1.67331
+I1214 22:30:00.219332 32649 sgd_solver.cpp:106] Iteration 1300, lr = 0.0001
+I1214 22:30:17.786048 32649 solver.cpp:228] Iteration 1320, loss = 1.64684
+I1214 22:30:17.786299 32649 sgd_solver.cpp:106] Iteration 1320, lr = 0.0001
+I1214 22:30:35.338670 32649 solver.cpp:228] Iteration 1340, loss = 1.67373
+I1214 22:30:35.338752 32649 sgd_solver.cpp:106] Iteration 1340, lr = 0.0001
+I1214 22:30:52.891877 32649 solver.cpp:228] Iteration 1360, loss = 1.62573
+I1214 22:30:52.892115 32649 sgd_solver.cpp:106] Iteration 1360, lr = 0.0001
+I1214 22:31:10.452575 32649 solver.cpp:228] Iteration 1380, loss = 1.68123
+I1214 22:31:10.452682 32649 sgd_solver.cpp:106] Iteration 1380, lr = 0.0001
+I1214 22:31:27.179780 32649 solver.cpp:337] Iteration 1400, Testing net (#0)
+I1214 22:31:27.180006 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:31:28.031450 32649 solver.cpp:228] Iteration 1400, loss = 1.57921
+I1214 22:31:28.031533 32649 sgd_solver.cpp:106] Iteration 1400, lr = 0.0001
+I1214 22:31:45.583827 32649 solver.cpp:228] Iteration 1420, loss = 1.63309
+I1214 22:31:45.583926 32649 sgd_solver.cpp:106] Iteration 1420, lr = 0.0001
+I1214 22:32:03.138355 32649 solver.cpp:228] Iteration 1440, loss = 1.5991
+I1214 22:32:03.138559 32649 sgd_solver.cpp:106] Iteration 1440, lr = 0.0001
+I1214 22:32:20.692518 32649 solver.cpp:228] Iteration 1460, loss = 1.65964
+I1214 22:32:20.692620 32649 sgd_solver.cpp:106] Iteration 1460, lr = 0.0001
+I1214 22:32:38.250000 32649 solver.cpp:228] Iteration 1480, loss = 1.6437
+I1214 22:32:38.250264 32649 sgd_solver.cpp:106] Iteration 1480, lr = 0.0001
+I1214 22:32:54.946223 32649 solver.cpp:454] Snapshotting to binary proto file ../models/center/center_fixed_iter_1500.caffemodel
+I1214 22:32:55.921869 32649 sgd_solver.cpp:273] Snapshotting solver state to binary proto file ../models/center/center_fixed_iter_1500.solverstate
+I1214 22:32:56.898340 32649 solver.cpp:228] Iteration 1500, loss = 1.68079
+I1214 22:32:56.898421 32649 sgd_solver.cpp:106] Iteration 1500, lr = 0.0001
+I1214 22:33:14.450671 32649 solver.cpp:228] Iteration 1520, loss = 1.70687
+I1214 22:33:14.450904 32649 sgd_solver.cpp:106] Iteration 1520, lr = 0.0001
+I1214 22:33:32.000789 32649 solver.cpp:228] Iteration 1540, loss = 1.68334
+I1214 22:33:32.000879 32649 sgd_solver.cpp:106] Iteration 1540, lr = 0.0001
+I1214 22:33:49.549279 32649 solver.cpp:228] Iteration 1560, loss = 1.62582
+I1214 22:33:49.549481 32649 sgd_solver.cpp:106] Iteration 1560, lr = 0.0001
+I1214 22:34:07.102169 32649 solver.cpp:228] Iteration 1580, loss = 1.66524
+I1214 22:34:07.102275 32649 sgd_solver.cpp:106] Iteration 1580, lr = 0.0001
+I1214 22:34:23.815940 32649 solver.cpp:337] Iteration 1600, Testing net (#0)
+I1214 22:34:23.816215 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:34:24.668534 32649 solver.cpp:228] Iteration 1600, loss = 1.65959
+I1214 22:34:24.668633 32649 sgd_solver.cpp:106] Iteration 1600, lr = 0.0001
+I1214 22:34:42.227965 32649 solver.cpp:228] Iteration 1620, loss = 1.60951
+I1214 22:34:42.228065 32649 sgd_solver.cpp:106] Iteration 1620, lr = 0.0001
+I1214 22:34:59.775681 32649 solver.cpp:228] Iteration 1640, loss = 1.65036
+I1214 22:34:59.775923 32649 sgd_solver.cpp:106] Iteration 1640, lr = 0.0001
+I1214 22:35:17.323626 32649 solver.cpp:228] Iteration 1660, loss = 1.61463
+I1214 22:35:17.323717 32649 sgd_solver.cpp:106] Iteration 1660, lr = 0.0001
+I1214 22:35:34.868908 32649 solver.cpp:228] Iteration 1680, loss = 1.66971
+I1214 22:35:34.869192 32649 sgd_solver.cpp:106] Iteration 1680, lr = 0.0001
+I1214 22:35:52.428284 32649 solver.cpp:228] Iteration 1700, loss = 1.65507
+I1214 22:35:52.428380 32649 sgd_solver.cpp:106] Iteration 1700, lr = 0.0001
+I1214 22:36:09.981406 32649 solver.cpp:228] Iteration 1720, loss = 1.60477
+I1214 22:36:09.981642 32649 sgd_solver.cpp:106] Iteration 1720, lr = 0.0001
+I1214 22:36:27.526669 32649 solver.cpp:228] Iteration 1740, loss = 1.61707
+I1214 22:36:27.526759 32649 sgd_solver.cpp:106] Iteration 1740, lr = 0.0001
+I1214 22:36:45.080107 32649 solver.cpp:228] Iteration 1760, loss = 1.66687
+I1214 22:36:45.080363 32649 sgd_solver.cpp:106] Iteration 1760, lr = 0.0001
+I1214 22:37:02.640588 32649 solver.cpp:228] Iteration 1780, loss = 1.59647
+I1214 22:37:02.640684 32649 sgd_solver.cpp:106] Iteration 1780, lr = 0.0001
+I1214 22:37:19.358844 32649 solver.cpp:337] Iteration 1800, Testing net (#0)
+I1214 22:37:19.359079 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:37:20.210871 32649 solver.cpp:228] Iteration 1800, loss = 1.6106
+I1214 22:37:20.210970 32649 sgd_solver.cpp:106] Iteration 1800, lr = 0.0001
+I1214 22:37:37.772030 32649 solver.cpp:228] Iteration 1820, loss = 1.6483
+I1214 22:37:37.772109 32649 sgd_solver.cpp:106] Iteration 1820, lr = 0.0001
+I1214 22:37:55.320688 32649 solver.cpp:228] Iteration 1840, loss = 1.63645
+I1214 22:37:55.320977 32649 sgd_solver.cpp:106] Iteration 1840, lr = 0.0001
+I1214 22:38:12.884071 32649 solver.cpp:228] Iteration 1860, loss = 1.65716
+I1214 22:38:12.884169 32649 sgd_solver.cpp:106] Iteration 1860, lr = 0.0001
+I1214 22:38:30.452404 32649 solver.cpp:228] Iteration 1880, loss = 1.61932
+I1214 22:38:30.452685 32649 sgd_solver.cpp:106] Iteration 1880, lr = 0.0001
+I1214 22:38:48.016990 32649 solver.cpp:228] Iteration 1900, loss = 1.61285
+I1214 22:38:48.017076 32649 sgd_solver.cpp:106] Iteration 1900, lr = 0.0001
+I1214 22:39:05.600576 32649 solver.cpp:228] Iteration 1920, loss = 1.61414
+I1214 22:39:05.600810 32649 sgd_solver.cpp:106] Iteration 1920, lr = 0.0001
+I1214 22:39:23.166092 32649 solver.cpp:228] Iteration 1940, loss = 1.59767
+I1214 22:39:23.166194 32649 sgd_solver.cpp:106] Iteration 1940, lr = 0.0001
+I1214 22:39:40.733628 32649 solver.cpp:228] Iteration 1960, loss = 1.62092
+I1214 22:39:40.733882 32649 sgd_solver.cpp:106] Iteration 1960, lr = 0.0001
+I1214 22:39:58.296008 32649 solver.cpp:228] Iteration 1980, loss = 1.6546
+I1214 22:39:58.296097 32649 sgd_solver.cpp:106] Iteration 1980, lr = 0.0001
+I1214 22:40:15.009758 32649 solver.cpp:454] Snapshotting to binary proto file ../models/center/center_fixed_iter_2000.caffemodel
+I1214 22:40:15.990315 32649 sgd_solver.cpp:273] Snapshotting solver state to binary proto file ../models/center/center_fixed_iter_2000.solverstate
+I1214 22:40:16.247537 32649 solver.cpp:337] Iteration 2000, Testing net (#0)
+I1214 22:40:16.247608 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:40:16.972762 32649 solver.cpp:228] Iteration 2000, loss = 1.62798
+I1214 22:40:16.972862 32649 sgd_solver.cpp:106] Iteration 2000, lr = 0.0001
+I1214 22:40:34.534639 32649 solver.cpp:228] Iteration 2020, loss = 1.64636
+I1214 22:40:34.534734 32649 sgd_solver.cpp:106] Iteration 2020, lr = 0.0001
+I1214 22:40:52.089498 32649 solver.cpp:228] Iteration 2040, loss = 1.60827
+I1214 22:40:52.089746 32649 sgd_solver.cpp:106] Iteration 2040, lr = 0.0001
+I1214 22:41:09.645939 32649 solver.cpp:228] Iteration 2060, loss = 1.63859
+I1214 22:41:09.646016 32649 sgd_solver.cpp:106] Iteration 2060, lr = 0.0001
+I1214 22:41:27.203747 32649 solver.cpp:228] Iteration 2080, loss = 1.59187
+I1214 22:41:27.204010 32649 sgd_solver.cpp:106] Iteration 2080, lr = 0.0001
+I1214 22:41:44.767305 32649 solver.cpp:228] Iteration 2100, loss = 1.61276
+I1214 22:41:44.767398 32649 sgd_solver.cpp:106] Iteration 2100, lr = 0.0001
+I1214 22:42:02.328487 32649 solver.cpp:228] Iteration 2120, loss = 1.62495
+I1214 22:42:02.328735 32649 sgd_solver.cpp:106] Iteration 2120, lr = 0.0001
+I1214 22:42:19.888648 32649 solver.cpp:228] Iteration 2140, loss = 1.60939
+I1214 22:42:19.888737 32649 sgd_solver.cpp:106] Iteration 2140, lr = 0.0001
+I1214 22:42:37.456724 32649 solver.cpp:228] Iteration 2160, loss = 1.62775
+I1214 22:42:37.456943 32649 sgd_solver.cpp:106] Iteration 2160, lr = 0.0001
+I1214 22:42:55.029971 32649 solver.cpp:228] Iteration 2180, loss = 1.65554
+I1214 22:42:55.030066 32649 sgd_solver.cpp:106] Iteration 2180, lr = 0.0001
+I1214 22:43:11.761782 32649 solver.cpp:337] Iteration 2200, Testing net (#0)
+I1214 22:43:11.761996 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:43:12.615914 32649 solver.cpp:228] Iteration 2200, loss = 1.61523
+I1214 22:43:12.615988 32649 sgd_solver.cpp:106] Iteration 2200, lr = 0.0001
+I1214 22:43:30.184223 32649 solver.cpp:228] Iteration 2220, loss = 1.63696
+I1214 22:43:30.184310 32649 sgd_solver.cpp:106] Iteration 2220, lr = 0.0001
+I1214 22:43:47.736595 32649 solver.cpp:228] Iteration 2240, loss = 1.64428
+I1214 22:43:47.736865 32649 sgd_solver.cpp:106] Iteration 2240, lr = 0.0001
+I1214 22:44:05.297034 32649 solver.cpp:228] Iteration 2260, loss = 1.63376
+I1214 22:44:05.297137 32649 sgd_solver.cpp:106] Iteration 2260, lr = 0.0001
+I1214 22:44:22.858613 32649 solver.cpp:228] Iteration 2280, loss = 1.6641
+I1214 22:44:22.858844 32649 sgd_solver.cpp:106] Iteration 2280, lr = 0.0001
+I1214 22:44:40.421854 32649 solver.cpp:228] Iteration 2300, loss = 1.62769
+I1214 22:44:40.421942 32649 sgd_solver.cpp:106] Iteration 2300, lr = 0.0001
+I1214 22:44:57.996654 32649 solver.cpp:228] Iteration 2320, loss = 1.58965
+I1214 22:44:57.996904 32649 sgd_solver.cpp:106] Iteration 2320, lr = 0.0001
+I1214 22:45:15.555516 32649 solver.cpp:228] Iteration 2340, loss = 1.58636
+I1214 22:45:15.555596 32649 sgd_solver.cpp:106] Iteration 2340, lr = 0.0001
+I1214 22:45:33.114738 32649 solver.cpp:228] Iteration 2360, loss = 1.62135
+I1214 22:45:33.114959 32649 sgd_solver.cpp:106] Iteration 2360, lr = 0.0001
+I1214 22:45:50.679625 32649 solver.cpp:228] Iteration 2380, loss = 1.57359
+I1214 22:45:50.679718 32649 sgd_solver.cpp:106] Iteration 2380, lr = 0.0001
+I1214 22:46:07.398473 32649 solver.cpp:337] Iteration 2400, Testing net (#0)
+I1214 22:46:07.398669 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:46:08.250624 32649 solver.cpp:228] Iteration 2400, loss = 1.61039
+I1214 22:46:08.250710 32649 sgd_solver.cpp:106] Iteration 2400, lr = 0.0001
+I1214 22:46:25.804998 32649 solver.cpp:228] Iteration 2420, loss = 1.62213
+I1214 22:46:25.805090 32649 sgd_solver.cpp:106] Iteration 2420, lr = 0.0001
+I1214 22:46:43.371341 32649 solver.cpp:228] Iteration 2440, loss = 1.65444
+I1214 22:46:43.371577 32649 sgd_solver.cpp:106] Iteration 2440, lr = 0.0001
+I1214 22:47:00.926889 32649 solver.cpp:228] Iteration 2460, loss = 1.58691
+I1214 22:47:00.926980 32649 sgd_solver.cpp:106] Iteration 2460, lr = 0.0001
+I1214 22:47:18.474164 32649 solver.cpp:228] Iteration 2480, loss = 1.5729
+I1214 22:47:18.474401 32649 sgd_solver.cpp:106] Iteration 2480, lr = 0.0001
+I1214 22:47:35.174533 32649 solver.cpp:454] Snapshotting to binary proto file ../models/center/center_fixed_iter_2500.caffemodel
+I1214 22:47:36.140502 32649 sgd_solver.cpp:273] Snapshotting solver state to binary proto file ../models/center/center_fixed_iter_2500.solverstate
+I1214 22:47:37.130370 32649 solver.cpp:228] Iteration 2500, loss = 1.57675
+I1214 22:47:37.130444 32649 sgd_solver.cpp:106] Iteration 2500, lr = 0.0001
+I1214 22:47:54.690243 32649 solver.cpp:228] Iteration 2520, loss = 1.59149
+I1214 22:47:54.690444 32649 sgd_solver.cpp:106] Iteration 2520, lr = 0.0001
+I1214 22:48:12.241801 32649 solver.cpp:228] Iteration 2540, loss = 1.61683
+I1214 22:48:12.241888 32649 sgd_solver.cpp:106] Iteration 2540, lr = 0.0001
+I1214 22:48:29.792675 32649 solver.cpp:228] Iteration 2560, loss = 1.60404
+I1214 22:48:29.792843 32649 sgd_solver.cpp:106] Iteration 2560, lr = 0.0001
+I1214 22:48:47.343230 32649 solver.cpp:228] Iteration 2580, loss = 1.57143
+I1214 22:48:47.343296 32649 sgd_solver.cpp:106] Iteration 2580, lr = 0.0001
+I1214 22:49:04.059852 32649 solver.cpp:337] Iteration 2600, Testing net (#0)
+I1214 22:49:04.060055 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:49:04.911612 32649 solver.cpp:228] Iteration 2600, loss = 1.5586
+I1214 22:49:04.911684 32649 sgd_solver.cpp:106] Iteration 2600, lr = 0.0001
+I1214 22:49:22.459167 32649 solver.cpp:228] Iteration 2620, loss = 1.61655
+I1214 22:49:22.459271 32649 sgd_solver.cpp:106] Iteration 2620, lr = 0.0001
+I1214 22:49:40.021248 32649 solver.cpp:228] Iteration 2640, loss = 1.61036
+I1214 22:49:40.021934 32649 sgd_solver.cpp:106] Iteration 2640, lr = 0.0001
+I1214 22:49:57.572325 32649 solver.cpp:228] Iteration 2660, loss = 1.62222
+I1214 22:49:57.572405 32649 sgd_solver.cpp:106] Iteration 2660, lr = 0.0001
+I1214 22:50:15.119226 32649 solver.cpp:228] Iteration 2680, loss = 1.6105
+I1214 22:50:15.119437 32649 sgd_solver.cpp:106] Iteration 2680, lr = 0.0001
+I1214 22:50:32.672313 32649 solver.cpp:228] Iteration 2700, loss = 1.60322
+I1214 22:50:32.672402 32649 sgd_solver.cpp:106] Iteration 2700, lr = 0.0001
+I1214 22:50:50.227931 32649 solver.cpp:228] Iteration 2720, loss = 1.64624
+I1214 22:50:50.228157 32649 sgd_solver.cpp:106] Iteration 2720, lr = 0.0001
+I1214 22:51:07.789119 32649 solver.cpp:228] Iteration 2740, loss = 1.56637
+I1214 22:51:07.789224 32649 sgd_solver.cpp:106] Iteration 2740, lr = 0.0001
+I1214 22:51:25.348266 32649 solver.cpp:228] Iteration 2760, loss = 1.61457
+I1214 22:51:25.348497 32649 sgd_solver.cpp:106] Iteration 2760, lr = 0.0001
+I1214 22:51:42.911770 32649 solver.cpp:228] Iteration 2780, loss = 1.59736
+I1214 22:51:42.911852 32649 sgd_solver.cpp:106] Iteration 2780, lr = 0.0001
+I1214 22:51:59.630151 32649 solver.cpp:337] Iteration 2800, Testing net (#0)
+I1214 22:51:59.635334 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:52:00.481456 32649 solver.cpp:228] Iteration 2800, loss = 1.57758
+I1214 22:52:00.481540 32649 sgd_solver.cpp:106] Iteration 2800, lr = 0.0001
+I1214 22:52:18.036104 32649 solver.cpp:228] Iteration 2820, loss = 1.61253
+I1214 22:52:18.036190 32649 sgd_solver.cpp:106] Iteration 2820, lr = 0.0001
+I1214 22:52:35.599781 32649 solver.cpp:228] Iteration 2840, loss = 1.56622
+I1214 22:52:35.599967 32649 sgd_solver.cpp:106] Iteration 2840, lr = 0.0001
+I1214 22:52:53.155259 32649 solver.cpp:228] Iteration 2860, loss = 1.57533
+I1214 22:52:53.155378 32649 sgd_solver.cpp:106] Iteration 2860, lr = 0.0001
+I1214 22:53:10.712074 32649 solver.cpp:228] Iteration 2880, loss = 1.60061
+I1214 22:53:10.712301 32649 sgd_solver.cpp:106] Iteration 2880, lr = 0.0001
+I1214 22:53:28.262126 32649 solver.cpp:228] Iteration 2900, loss = 1.60344
+I1214 22:53:28.262214 32649 sgd_solver.cpp:106] Iteration 2900, lr = 0.0001
+I1214 22:53:45.821522 32649 solver.cpp:228] Iteration 2920, loss = 1.61894
+I1214 22:53:45.821763 32649 sgd_solver.cpp:106] Iteration 2920, lr = 0.0001
+I1214 22:54:03.377463 32649 solver.cpp:228] Iteration 2940, loss = 1.59527
+I1214 22:54:03.377547 32649 sgd_solver.cpp:106] Iteration 2940, lr = 0.0001
+I1214 22:54:20.936477 32649 solver.cpp:228] Iteration 2960, loss = 1.58159
+I1214 22:54:20.936735 32649 sgd_solver.cpp:106] Iteration 2960, lr = 0.0001
+I1214 22:54:38.492005 32649 solver.cpp:228] Iteration 2980, loss = 1.55779
+I1214 22:54:38.492099 32649 sgd_solver.cpp:106] Iteration 2980, lr = 0.0001
+I1214 22:54:55.191903 32649 solver.cpp:454] Snapshotting to binary proto file ../models/center/center_fixed_iter_3000.caffemodel
+I1214 22:54:57.397121 32649 sgd_solver.cpp:273] Snapshotting solver state to binary proto file ../models/center/center_fixed_iter_3000.solverstate
+I1214 22:54:57.670507 32649 solver.cpp:337] Iteration 3000, Testing net (#0)
+I1214 22:54:57.670601 32649 net.cpp:693] Ignoring source layer data_train
+I1214 22:54:58.394142 32649 solver.cpp:228] Iteration 3000, loss = 1.57271
+I1214 22:54:58.394235 32649 sgd_solver.cpp:106] Iteration 3000, lr = 0.0001
+I1214 22:55:09.824348 32649 solver.cpp:454] Snapshotting to binary proto file ../models/center/center_fixed_iter_3014.caffemodel
+I1214 22:55:11.929354 32649 sgd_solver.cpp:273] Snapshotting solver state to binary proto file ../models/center/center_fixed_iter_3014.solverstate
+I1214 22:55:12.198951 32649 solver.cpp:301] Optimization stopped early.
+I1214 22:55:12.199005 32649 caffe.cpp:254] Optimization Done.

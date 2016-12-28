@@ -1,0 +1,21 @@
+# The train/test net protocol buffer definition
+net: "../scripts/inception21k_train_fc2.prototxt"
+test_iter: 20 #263
+test_interval: 200000
+test_initialization: false
+
+display: 20
+average_loss: 20
+
+lr_policy: "step"
+base_lr: 0.001
+gamma: 0.1
+stepsize: 10000
+max_iter: 30000
+
+momentum: 0.9
+weight_decay: 0.0005
+
+snapshot: 500
+snapshot_prefix: "../models/inception21k/inception21k_fc2"
+solver_mode: GPU
