@@ -15,32 +15,13 @@ import caffe
 
 model_choice = 0
 
-if model_choice == 0:
-    #### ALEXNET #### 227*227
-    # MODEL_FILE = caffe_root + 'ReID/baseline_scnn/jstl_dgd_deploy.prototxt'
-    MODEL_FILE = caffe_root + '../scripts/alexnet_deploy.prototxt'
-    PRETRAINED = caffe_root + '../pretrained/alexnet/Submission_3.caffemodel'
-    # PRETRAINED = caffe_root + '../models/center/alexnet_train_iter_300.caffemodel'
-    imh = 227
-    imw = 227
-
-elif model_choice == 1:
-    #### CENTERLOSS #### 112*96
-    MODEL_FILE = caffe_root + '../scripts/face_deploy.prototxt'
-    # PRETRAINED = caffe_root + '../models/center/center_step3_addacc_iter_1500.caffemodel'
-    # PRETRAINED = caffe_root + '../pretrained/centerloss/face_model.caffemodel'
-    PRETRAINED = caffe_root + '../models/center/center_step3_addacc_iter_1000.caffemodel'
-    imh = 112
-    imw = 96
-
-elif model_choice == 2:
-    #### INCEPTION #### 224*224
-    MODEL_FILE = caffe_root + '../scripts/inception21k_deploy.prototxt'
-    # PRETRAINED = caffe_root + '../models/inception21k/inception21k_step4_decay_iter_300.caffemodel'
-    PRETRAINED = caffe_root + '../models/inception21k/inception21k_step3_iter_1000.caffemodel'
-
-    imh = 224
-    imw = 224
+#### ALEXNET #### 227*227
+# MODEL_FILE = caffe_root + 'ReID/baseline_scnn/jstl_dgd_deploy.prototxt'
+MODEL_FILE = caffe_root + '../scripts/alexnet_lstm_deploy.prototxt'
+PRETRAINED = caffe_root + '../models/lstm/alexnet_lstm_1024_iter_700.caffemodel'
+# PRETRAINED = caffe_root + '../models/center/alexnet_train_iter_300.caffemodel'
+imh = 227
+imw = 227
 
 
 
@@ -50,12 +31,12 @@ net = caffe.Net(MODEL_FILE, PRETRAINED, caffe.TEST)
 caffe.set_mode_gpu()
 caffe.set_device(2)
 
-feature = np.zeros([10,200,256])
-
 test_dir = '../AFEW_Detect/Val/'
 
-# attributes = ['Fear','Sad','Happy','Surprise','Disgust','Angry','Neutral'] # for alexnet 
 attributes = ['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise'] # for others
+
+clip_len = 15
+
 
 num_all = 0.0
 num_right = 0.0
@@ -71,26 +52,38 @@ for i in xrange(len(attributes)):
         vid_folder = vid_list[vid_id]
         im_folder = test_dir + attributes[i] + '/' + vid_folder
         im_list = os.listdir(im_folder)
-        total_num = len(im_list)
-        # if len(im_list)>1:
-            # im_list = im_list[int(total_num*0.15):int(total_num*(1-0.15))]
-        ims = np.zeros([len(im_list),3,imh,imw])
-        # print len(im_list)
-        # read in a file of ims
-        for im_id in xrange(len(im_list)):
-            im = mpimg.imread(test_dir + attributes[i] + '/' + vid_folder + '/' + im_list[im_id]) 
+        n_im = len(im_list)
+
+        # for a single video clip
+        ims = np.zeros([clip_len,3,imh,imw])
+
+        for i_im in xrange(clip_len):
+            pos = int(round((n_im-1)*i_im / clip_len))
+
+            im = mpimg.imread(test_dir + attributes[i] + '/' + vid_folder + '/' + im_list[pos]) 
             im = scipy.misc.imresize(im,[imh, imw])
-            # print im.shape
+            
             for ch in xrange(3):
-                ims[im_id,ch,...] = im
+                ims[i_im,ch,...] = im
+
         ims = ims - 129
 
-        net.blobs['data'].reshape(len(im_list), 3, imh, imw)
-        feat = net.forward(data=ims)
-        prob = feat['prob']
+        net.blobs['data'].reshape(clip_len, 3, imh, imw)
+        net.blobs['clip_marker'].reshape(clip_len,1)
+        clip_marker = np.ones([clip_len,1])
+        clip_marker[0] = 0
 
-        num_single += len(im_list)
-        for i_sin in xrange(len(im_list)):
+        # print 'data shape', ims.shape
+        # print 'clip_marker shape', clip_marker.shape
+
+
+        feat = net.forward(data=ims, clip_marker=clip_marker)
+        prob = feat['prob']
+        prob = np.squeeze(prob)
+        # print prob.shape
+
+        num_single += clip_len
+        for i_sin in xrange(clip_len):
             choice_single = np.where(prob[i_sin,:] == max(prob[i_sin,:]))
             choice_single = choice_single[0]
             choice_single = choice_single[0]
@@ -101,6 +94,7 @@ for i in xrange(len(attributes)):
 
 
         avr_prob = np.mean(prob,0)
+        # print avr_prob
         # print avr_prob
         choice = np.where(avr_prob == max(avr_prob))
         choice = choice[0]
