@@ -1,0 +1,83 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+\setcounter{page}{1}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{AFEW Competition of Emotion Recognition}
+
+\author{Cao Kaidi\\
+EE43\\
+2014012282
+\and
+Lin Ji\\
+EE43\\
+2014011097
+\and
+Yan Jingkai\\
+EE46\\
+2014011192
+}
+
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+   TO BE DONE
+\end{abstract}
+
+%%%%%%%%% BODY TEXT
+\section{Introduction}
+
+
+
+\section{Learn Facial Landmarks}
+
+% TO BE COMPLETED
+
+% TO ADD MORE SECTIONS
+
+\section{Learn Audio Signals}
+
+Audio signal is another important component in video recognition. In the case of AFEW, we discover that the audio segments from movie clips vary significantly from each other, including the existence of speech and background music. Therefore, we predict the audio recognition result to be less accurate than the video dimension. Nonetheless, a proper exploitation of audio features can also provide reference to our recognition and improve the performance.
+
+We adopt the Opensmile toolbox \cite{eyben2010opensmile} for audio feature extraction. The feature configuration applied here is \texttt{emobase2010}, which projects each wave file onto a 1583-dimension vector, with features including loudness, MFCC values, etc. Insipired by the work of \cite{fan2016video} Then we apply an SVM classifier to learn audio features from the training data.
+
+In the selection of SVM parameters, we experimented with several types of kernel functions including linear, polynomial and RBF, and discovered that linear kernel yields the best performance. The choice of optimal parameters such as cost and weight are found using grid search method.
+
+\section{Fusion}
+
+\section{Experiment}
+
+\section{Conclusion}
+
+\section{Acknowledgement}
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{AFEW}
+}
+
+\end{document}
