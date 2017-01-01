@@ -3,5 +3,7 @@ openSMILE-2.1.0/*
 openSMILE-2.2rc1/*
 toolbox/*
 model/*
+libsvm/*
+tmp/*
 *log
 *.m~

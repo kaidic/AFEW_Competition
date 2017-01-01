@@ -103,5 +103,6 @@ function ret_val = video_process(filestr)
     input_blob = {clip_imgs, clip_marker};
     prob = net.forward(input_blob);
     prob = prob{1};
+    % LSTM mean pooling
     ret_val = mean(prob, 3);
 end
