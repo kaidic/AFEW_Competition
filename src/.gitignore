@@ -1,7 +1,7 @@
-MTCNN_face_detection_alignment/*
+MTCNN_face_detection_alignment
 openSMILE-2.1.0/*
 openSMILE-2.2rc1/*
-toolbox/*
+toolbox
 model/*
 libsvm/*
 tmp/*

@@ -1,13 +1,7 @@
+% Modified by Kaidi Cao
+
 function    ret =   fun_process(filestr)
 
-    [filePath, fileName, fileExt]   =   fileparts(filestr);
-    disp(filestr);
-
-    % load decoded audio and video frames from .mat file.
-    load(fullfile(filePath, [fileName, '.mat']));
-
-    
-    
     ret_set =   {'Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise'};
     if (exist('fun_classification.m', 'file'))
         ret_val =   fun_classification(filestr);

@@ -1,3 +1,6 @@
+%% Predicting emotions using video info
+% Coded by Kaidi Cao
+
 function ret_val = video_process(filestr)
 
     %% Initialization
@@ -9,7 +12,7 @@ function ret_val = video_process(filestr)
     addpath(genpath(caffe_path));
     addpath(genpath(mtcnn_path));
     addpath(genpath(pdollar_toolbox_path));
-
+    caffe.reset_all();
     %use cpu
     %caffe.set_mode_cpu();
     gpu_id=0;
@@ -36,10 +39,14 @@ function ret_val = video_process(filestr)
     model_dir =  strcat(caffe_model_path,'/det4.caffemodel');
     LNet=caffe.Net(prototxt_dir,model_dir,'test');
 
+    % load mat file
+    
+    [filePath, fileName, fileExt]   =   fileparts(filestr);
 
+    % load decoded audio and video frames from .mat file.
+    load(fullfile(filePath, [fileName, '.mat']));
+    
     %% Face Detection
-    matname = [filestr, '.mat'];
-    load(matname);
     img_size = 227;
     detected_imgs = zeros(img_size, img_size, 3, ceil(length(video.frames)/2));
     detected = 0;
@@ -104,5 +111,5 @@ function ret_val = video_process(filestr)
     prob = net.forward(input_blob);
     prob = prob{1};
     % LSTM mean pooling
-    ret_val = mean(prob, 3);
+    ret_val = mean(prob, 3)';
 end
