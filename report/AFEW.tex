@@ -104,6 +104,12 @@ Prob_{final} = Prob_{video} + t \times Prob_{video}
 
 We selected the value of $t$ by investigating the performance of $t$ from $0$ to $1$ with a step of $0.01$ and got the curve shown in . From the figure we decided to choose the t value as $t=0.25$. The argmax of $Prob_{final}$ will serve as our final prediction.
 
+\begin{figure}[t]
+	\centering
+	\includegraphics[width = 8cm]{pic/t_selection.eps}
+	\caption{t selection curve}
+\end{figure}
+
 Another implementation worth clarifying is that our audio model will always have a prediction while the video model will fail to do so if there's not a single face detected by MTCNN. In this case, we'll produce results solely by audio model, which is still higher than random guess. And from Table 1. we can see that this detection model rarely fails. 
 
 \section{Experiment}
