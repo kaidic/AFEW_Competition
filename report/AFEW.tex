@@ -53,11 +53,28 @@ EE46\\
 
 
 
-\section{Learn Facial Landmarks}
+\section{Preprocessing}
 
-% TO BE COMPLETED
+As for visual part, it could be easily observed that there exists a large amount of unrelated information such as background, illumination, color, etc. that we humans do not need to reference while deciding a person's emotion. Thus, it would be reasonable that we conduct preprocessing procedure before feeding frames into neural network. Here we perform face detection and face alignment, which is a common process in tasks like face verification.
 
-% TO ADD MORE SECTIONS
+In face detection part, we tested two open source software. Openface \cite{amos2016openface} is a Python and Torch implementation of face recognition with deep neural networks and is based on the CVPR 2015 paper FaceNet \cite{schroff2015facenet}. A sad news is that its detection toolkit is currently developed on dlib \cite{king2009dlib}, which couldn't support CUDA, resulting in a huge time cost. One remedy we attempted on this software is to use thread pool parallel computing. By applying 8 threads concurrently we are able to compress the detection time of a video clip into 2 seconds or so. However, this software has another big issue that is basically not tolerable, detection recall.
+
+Thus we found a more state of the art implementation of face detection, named Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Neural Networks \cite{7553523}. It's a matcaffe implementation, which fits our environment quite well. More importantly, its detection recall is far more satisfying, so that we use this tool in our final submission. We provide our detection recall test result in Table 1. Not detected means not a single face was detected among all frames. 
+
+\begin{table}[htpb]
+	\begin{center}
+		\begin{tabular}{|l|c|c|}
+			\hline
+			Method & Not Detected & Total Frames\\
+			\hline\hline
+			OpenFace & 75 & 383\\
+			\hline
+			MTCNN & 4 & 383\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{Detection Results Tested on Val Set}
+\end{table}
 
 \section{Learn Audio Signals}
 
