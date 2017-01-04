@@ -6,14 +6,15 @@ emotion_class = {'Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surpris
 audio_probs = [];
 video_probs = [];
 labels = [];
+fout = fopen('tmp/log.txt', 'w');
 for tmp_class = 1 : 7
-    films = dir([dir_prefix, emotion_class{tmp_class}, '/*.mat']);
+    films = dir([dir_prefix, emotion_class{tmp_class}, '/*.avi']);
     for f_id = 1 : length(films)
         full_dir = [dir_prefix, emotion_class{tmp_class}, '/', films(f_id).name];
-        full_dir = full_dir(1: end-4);
-        tic
+        tic;
         [audio_prob, video_prob] = fun_classification(full_dir);
-        toc
+        t2 = toc;
+        fprintf(fout, 'time used: %d\n', t2);
         if length(video_prob) ~= 1
             video_probs = [video_probs; video_prob];
             audio_probs = [audio_probs; audio_prob];
