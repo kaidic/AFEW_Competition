@@ -84,13 +84,39 @@ Since MTCNN was originally designed to generate detection and alignment result s
 
 \section{Learn Audio Signals}
 
-Audio signal is another important component in video recognition. In the case of AFEW, we discover that the audio segments from movie clips vary significantly from each other, including the existence of speech and background music. Therefore, we predict the audio recognition result to be less accurate than the video dimension. Nonetheless, a proper exploitation of audio features can also provide reference to our recognition and improve the performance.
+Audio signal serves as another key component in video recognition. In the case of AFEW, it is found that audio segments from movie clips vary significantly within the dataset, e.g. the existence of speech and background music. Therefore, we predict the audio recognition result to be less accurate than the video dimension. Nonetheless, a proper exploitation of audio features can also provide reference to our recognition and improve the performance.
 
-We adopt the Opensmile toolbox \cite{eyben2010opensmile} for audio feature extraction. The feature configuration applied here is \texttt{emobase2010}, which projects each wave file onto a 1583-dimension vector, with features including loudness, MFCC values, etc. Insipired by the work of \cite{fan2016video} Then we apply an SVM classifier to learn audio features from the training data.
+Although this project is essentially deep-learning-based, the traditional approach of SVM is employed for the processing of audio, for the purpose of reducing the size of our model. After all, the less satisfactory accuracy of audio makes it less worthwhile to occupy a large space.
 
-In the selection of SVM parameters, we experimented with several types of kernel functions including linear, polynomial and RBF, and discovered that linear kernel yields the best performance. The choice of optimal parameters such as cost and weight are found using grid search method.
+We adopt the Opensmile toolbox \cite{eyben2010opensmile} for audio feature extraction. The feature configuration applied here is \texttt{emobase2010}, which projects each wave file onto a 1583-dimension vector, with features including loudness, MFCC values, etc. Since OpenSmile is most conveniently called with the WAV input format, we first reformat the AVI files into WAV audios with the \texttt{ffmpeg} tool. Both format transformation and feature extraction are conducted using system call. 
 
-% To be added, transfrom decision value to probability distribution
+After acquiring the 1583-dimensional audio features, we apply an SVM classifier for recognition, the idea of which is insipired by the work of \cite{fan2016video}. Because that the methodology of SVM is intrinsically binary (two-class), certain tricks need to be employed for our task of seven-class classification. The LibSVM \cite{CC01a} toolbox implements multi-class SVM by multiple one-to-one SVMs, resulting in $n(n-1)/2$ SVMs for n-class classification, and consequently $n(n-1)/2$ decision values. For our purpose of a fusion of SVM and CNN predictions, we wish to reformulate the decision values into a 7-dimension vector. The method we designed is introduced as follows. For each class, we select the 6 relevent decision values out of the 21, decide the sign (positive or negative), take the exponential, then sum them up. This value after normalization gives the predicted probability which we require.
+
+In the selection of SVM parameters, we experimented with several types of kernel functions including linear, polynomial and RBF. For each type of kernel, the choice of optimal parameters such as cost and weight are found using grid search method. The optimal prediction results on validation set is listed in table \ref{tableSVM}. It can be discovered that polynomial kernel with degree 1 yields the best performance. 
+
+\begin{table}[htpb]
+   \begin{center}
+      \begin{tabular}{|l|c|}
+         \hline
+         Kernel & Optimal Accuracy\\
+         \hline\hline
+         Linear & ---\\
+         \hline
+         Polynomial $d=1$ & $31.3\%$ \\
+         \hline
+         Polynomial $d=2$ & $24.5\%$ \\
+         \hline
+         Polynomial $d=3$ & --- \\
+         \hline
+         RBF & --- \\
+         \hline
+         Sigmoid & --- \\
+         \hline
+      \end{tabular}
+   \end{center}
+   \caption{Detection Results Tested on Val Set}
+   \label{tableSVM}
+\end{table}
 
 \section{Model Fusion}
 
