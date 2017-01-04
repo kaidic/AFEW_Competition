@@ -1,7 +1,7 @@
 %% Predicting emotions using both video info and audio info
 % Coded by Kaidi Cao
 
-function [audio_prob, video_prob] = fun_classification(filestr)
+function final_ret = fun_classification(filestr)
     
     %% audio part
     audio_prob = audio_process(filestr);

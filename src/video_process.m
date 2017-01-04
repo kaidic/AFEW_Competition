@@ -47,7 +47,7 @@ function ret_val = video_process(filestr)
     load(fullfile(filePath, [fileName, '.mat']));
     
     %% Face Detection
-    img_size = 224;
+    img_size = 227;
     detected_imgs = zeros(img_size, img_size, 3, ceil(length(video.frames)/2));
     detected = 0;
     for i = 1: 2 :length(video.frames)
@@ -103,17 +103,15 @@ function ret_val = video_process(filestr)
     clip_marker = ones([1, 1, 1, clip_len]);
     clip_marker(1) = 0;
 
-    %% inception
-    prototxt_dir = './model/inception/inception21k_deploy.prototxt';
-    model_dir = './model/inception/inception21k_alldata_iter_1000.caffemodel';
+    %% alex_lstm
+    prototxt_dir = './model/alexnet_lstm_deploy.prototxt';
+    model_dir = './model/alexnet_lstm_1024_iter_700.caffemodel';
     net = caffe.Net(prototxt_dir, model_dir, 'test');
-    prob_mat = zeros(7, clip_len);
-    for i = 1: clip_len
-        input_blob = {clip_imgs(:,:,:,i)};
-        prob = net.forward(input_blob);
-        prob = prob{1};
-        prob_mat(:, i) = prob;
-    end
+
+    input_blob = {clip_imgs, clip_marker};
+    prob = net.forward(input_blob);
+    prob = prob{1};
+    
     % mean pooling
-    ret_val = mean(prob_mat, 2)';
+    ret_val = mean(prob, 3)';
 end
