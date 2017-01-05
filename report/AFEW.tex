@@ -185,7 +185,7 @@ From the result above we can see that AlexNet and Inception-V2 lead to similar p
 
 In the training process, we adopt SGD to optimize the neural network. We set base learning rate to 1e-4, momentum=0.9, weight-decay=0.0005, gamma=0.1, and take early-stop strategy according to validation performance.
 
-As mentioned above, we first train the network on FER and then train on AFEW. The 2 dataset are both trained for every single frame using Softmax. After that, we use the model to train a LSTM on it. We chose clip length = 15 for the LSTM and lr\_mult=10. Then we train with similar settings as mentioned above.
+As mentioned above, we first train the network on FER and then train on AFEW. The 2 datasets are both trained for every single frame using Softmax. After that, we use the model to train a LSTM on it. We chose clip length = 15 for the LSTM and lr\_mult=10. Then we train with similar settings as mentioned above.
 
 It is worth noticing that we adopt many techniques to prevent overfitting. Since the dataset AFEW is quite small, the neural network may overfit to the training set very easily. To address this problem, we first apply DropOut with ratio 0.5 to the output of fully connected layers. We also manage to add some gaussian noise to the very last layers of the network to further improve its generalization ability. The results show that our method achieve significant improvement compared to original models.
 
@@ -208,12 +208,12 @@ Firstly we consider the visual part. To dig the best out of our network models, 
 \textbf{Model} & \textbf{Video} & \textbf{Frame} \\
 \hline\hline
 AlexNet Pretrained & 15.83 & 13.47 \\
-AlexNet FER & 20.21 & 19.42 \\
+AlexNet FER & 29.01 & 27.63 \\
 AlexNet AFEW & 41.16 &  35.32 \\
 AlexNet + LSTM & 42.48 & 39.26  \\ 
 \hline \hline 
 Inception Pretrained & 13.19 & 14.21 \\
-Inception FER & 19.78 & 18.48 \\
+Inception FER & 28.21 & 27.80 \\
 Inception AFEW & 44.06 & 37.43 \\
 \textbf{Inception + LSTM} & \textbf{45.38} & \textbf{43.48} \\
 
