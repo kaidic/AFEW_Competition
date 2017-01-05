@@ -1,8 +1,8 @@
 # The train/test net protocol buffer definition
-net: "../scripts/inception21k_lstm_part.prototxt"
+net: "../scripts/inception21k_lstm_sim.prototxt"
 test_iter: 14 #263
-test_interval: 20
-test_initialization: true
+test_interval: 20000000
+test_initialization: false
 
 display: 20
 average_loss: 20
@@ -16,6 +16,6 @@ max_iter: 30000
 momentum: 0.9
 weight_decay: 0.001 ###
 
-snapshot: 1000
-snapshot_prefix: "../models/inception21k/inception21k_lstm_part"
+snapshot: 100
+snapshot_prefix: "../models/inception21k/inception21k_lstm_sim"
 solver_mode: GPU

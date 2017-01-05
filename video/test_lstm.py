@@ -13,7 +13,7 @@ sys.path.insert(0, caffe_root + 'python')
 
 import caffe
 
-model_choice = 1
+model_choice = 2
 
 if model_choice == 0:
     #### ALEXNET #### 227*227
@@ -26,18 +26,23 @@ if model_choice == 0:
 
 if model_choice == 1:
     MODEL_FILE = caffe_root + '../scripts/inception21k_lstm_deploy.prototxt'
-    PRETRAINED = caffe_root + '../models/inception21k/inception21k_lstm_all_iter_12000.caffemodel'
+    PRETRAINED = caffe_root + '../models/inception21k/inception21k_lstm_all_iter_1600.caffemodel'
+
+    imh = 224
+    imw = 224
+
+if model_choice == 2:
+    MODEL_FILE = caffe_root + '../scripts/inception21k_lstm_deploy_sim.prototxt'
+    PRETRAINED = caffe_root + '../models/inception21k/inception21k_lstm_sim_iter_1800.caffemodel'
 
     imh = 224
     imw = 224
 
 
-
-
 print 'Using model: ', PRETRAINED
 net = caffe.Net(MODEL_FILE, PRETRAINED, caffe.TEST)
 caffe.set_mode_gpu()
-caffe.set_device(2)
+caffe.set_device(0)
 
 test_dir = '../AFEW_Detect/Val/'
 

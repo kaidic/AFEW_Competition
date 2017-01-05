@@ -82,6 +82,11 @@ Thus we found a more state of the art implementation of face detection, named Jo
 
 Since MTCNN was originally designed to generate detection and alignment result simultaneously, it is quite intuitive to apply affine transformation given 5 facial landmarks.
 
+
+\section{Learn Visual Signals}
+
+Visual signal is very important in emotion recognition. After preprocessing of the raw video, we obtain gray scale face series, which can be used for deep learning based method. Since the raw data is a video, it is a very straight-forward to apply CNN-RNN architecture to generate predictions. Considering the limited data and space limitation, we chose pretrained AlexNet, Inception-v2 and the CNN model trained with Center Loss from \cite{wen2016discriminative} for experiments. The first 2 models are pretrained on ImageNet and the last one was taken from the public code of the paper. As for RNN, we chose LSTM implemented in the standard Caffe.
+
 \section{Learn Audio Signals}
 
 Audio signal serves as another key component in video recognition. In the case of AFEW, it is found that audio segments from movie clips vary significantly within the dataset, e.g. the existence of speech and background music. Therefore, we predict the audio recognition result to be less accurate than the video dimension. Nonetheless, a proper exploitation of audio features can also provide reference to our recognition and improve the performance.
@@ -115,7 +120,7 @@ In the selection of SVM parameters, we experimented with several types of kernel
       \end{tabular}
    \end{center}
    \caption{Detection Results Tested on Val Set}
-   \label{tableSVM}
+   
 \end{table}
 
 \section{Model Fusion}
@@ -140,11 +145,93 @@ Another implementation worth clarifying is that our audio model will always have
 
 \section{Experiment}
 
+\subsection{Two-Step Fine-tuning}
+
+Since the data in AFEW is quite limited, it is infeasible to directly fine-tune the models from ImageNet on it. So we take the 2-step fine-tuning strategy as in some state-of-the-art papers. Firstly we fine-tune our model on FER, which is another popular dataset for emotion recognition. Then we continue to fine-tune the model on AFEW
+
+\subsection{Selection of Models}
+
+We propose 3 candidate network models above, AlexNet, Inception-V2 and CenterLoss trained models. Firstly we fine-tune them on FER and select a model based on the performance on AFEW to show their generalization ability. The video accuracy was done by mean pooling the accuracies of each frame. The results are shown in Table \ref{tableSel}
+
+
+\begin{table}[t]
+\begin{center}
+\vspace*{5pt}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Model} & \textbf{Frame Accuracy} & \textbf{Video Accuracy} \\
+\hline\hline
+AlexNet & 27.6 & \textbf{29.0} \\
+Inception-V2 & \textbf{27.8} & 28.2 \\
+CenterLoss & 21.3 & 20.5 \\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Performance comparison of different models trained on FER}
+\label{tableSel}
+
+\end{table}
+
+From the result above we can see that AlexNet and Inception-V2 lead to similar performance, while CenterLoss model is comparatively poor in performance. One possible result for this is center loss somehow makes it hard for the pretrained model to be used for transfer learning. AlexNet is better in speed while Inception-V2 has much less parameters. So we decide to take these 2 models into formal training process.
+
+
+
+\subsection{Training}
+
+In the training process, we adopt SGD to optimize the neural network. We set base learning rate to 1e-4, momentum=0.9, weight-decay=0.0005, gamma=0.1, and take early-stop strategy according to validation performance.
+
+As mentioned above, we first train the network on FER and then train on AFEW. The 2 dataset are both trained for every single frame using Softmax. After that, we use the model to train a LSTM on it. We chose clip length = 15 for the LSTM and lr\_mult=10. Then we train with similar settings as mentioned above.
+
+It is worth noticing that we adopt many techniques to prevent overfitting. Since the dataset AFEW is quite small, the neural network may overfit to the training set very easily. To address this problem, we first apply DropOut with ratio 0.5 to the output of fully connected layers. We also manage to add some gaussian noise to the very last layers of the network to further improve its generalization ability. The results show that our method achieve significant improvement compared to original models.
+
+\subsection{Results}
+
+Firstly we consider the visual part. To dig the best out of our network models, we actually conducted massive experiments. However, due to the length of the report, we only present the best result on videos by mean-pooling here. We show 4 results for both single frames and whole videos in Table \ref{tableResult}. \textbf{Pretrained} refers to the pretrained ImageNet models. \textbf{FER} refers to fine-tuning the pretrained model on FER and test on AFEW. \textbf{AFEW} refers to further fine-tuning the model on AFEW. \textbf{LSTM} refers to adding a LSTM to the CNN after training on AFEW. From the 4 results we can see the improvement in performance step by step.
+
+
+!!!!!!!!!!! CONFUSION MATRIX !!!!!!!!!!!!!!
+
+
+!!!!!!!!!!! FUSION HERE !!!!!!!!!!!!!!
+
+
+
+\begin{table}[t]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Model} & \textbf{Video} & \textbf{Frame} \\
+\hline\hline
+AlexNet Pretrained & 15.83 & 13.47 \\
+AlexNet FER & 20.21 & 19.42 \\
+AlexNet AFEW & 41.16 &  35.32 \\
+AlexNet + LSTM & 42.48 & 39.26  \\ 
+\hline \hline 
+Inception Pretrained & 13.19 & 14.21 \\
+Inception FER & 19.78 & 18.48 \\
+Inception AFEW & 44.06 & 37.43 \\
+\textbf{Inception + LSTM} & \textbf{45.38} & \textbf{43.48} \\
+
+
+\hline
+\end{tabular}
+\end{center}
+\caption{Performance comparison of different models on AFEW. The results of Video are obtain by mean pooling every result of single frame.}
+\label{tableResult}
+
+\end{table}
+
+
+
+
+\subsection{Run Time Analysis}
+
+
 \section{Conclusion}
 
 \section{Acknowledgement}
 
-Image-based caffe models are all trained by Lin Ji, Yan Jingkai has accomplished audio model, Cao Kaidi is responsible for video preprocessing, model fusion and deployment.
+Lin Ji trained all the image-based caffe models. Yan Jingkai has accomplished audio model. Cao Kaidi is responsible for video preprocessing, model fusion and deployment.
 
 {\small
 \bibliographystyle{ieee}

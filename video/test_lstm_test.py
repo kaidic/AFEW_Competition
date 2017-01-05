@@ -13,16 +13,23 @@ sys.path.insert(0, caffe_root + 'python')
 
 import caffe
 
-model_choice = 0
+model_choice = 1
 
-#### ALEXNET #### 227*227
-# MODEL_FILE = caffe_root + 'ReID/baseline_scnn/jstl_dgd_deploy.prototxt'
-MODEL_FILE = caffe_root + '../scripts/alexnet_lstm_deploy.prototxt'
-PRETRAINED = caffe_root + '../models/lstm/alexnet_lstm_final_iter_500.caffemodel'
-# PRETRAINED = caffe_root + '../models/center/alexnet_train_iter_300.caffemodel'
-imh = 227
-imw = 227
+if model_choice == 0:
+    #### ALEXNET #### 227*227
+    # MODEL_FILE = caffe_root + 'ReID/baseline_scnn/jstl_dgd_deploy.prototxt'
+    MODEL_FILE = caffe_root + '../scripts/alexnet_lstm_deploy.prototxt'
+    PRETRAINED = caffe_root + '../models/lstm/alexnet_lstm_final_iter_500.caffemodel'
+    # PRETRAINED = caffe_root + '../models/center/alexnet_train_iter_300.caffemodel'
+    imh = 227
+    imw = 227
 
+if model_choice == 1:
+    MODEL_FILE = caffe_root + '../scripts/inception21k_lstm_deploy.prototxt'
+    PRETRAINED = caffe_root + '../models/inception21k/inception21k_lstm_all_iter_6500.caffemodel'
+
+    imh = 224
+    imw = 224
 
 
 

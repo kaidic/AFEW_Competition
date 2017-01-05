@@ -13,15 +13,14 @@ sys.path.insert(0, caffe_root + 'python')
 
 import caffe
 
-model_choice = 2
+model_choice = 0
 
 if model_choice == 0:
     #### ALEXNET #### 227*227
     # MODEL_FILE = caffe_root + 'ReID/baseline_scnn/jstl_dgd_deploy.prototxt'
     MODEL_FILE = caffe_root + '../scripts/alexnet_deploy.prototxt'
     # PRETRAINED = caffe_root + '../pretrained/alexnet/Submission_3.caffemodel'
-    # PRETRAINED = caffe_root + '../models/alexnet/alexnet_train_alldata_iter_1300.caffemodel'
-    PRETRAINED = caffe_root + '../bvlc_alexnet.caffemodel'
+    PRETRAINED = caffe_root + '../models/alexnet/alexnet_train_alldata_iter_1000.caffemodel'
     imh = 227
     imw = 227
 
@@ -42,8 +41,7 @@ elif model_choice == 2:
     #### INCEPTION #### 224*224
     MODEL_FILE = caffe_root + '../scripts/inception21k_deploy.prototxt'
     # PRETRAINED = caffe_root + '../models/inception21k/inception21k_step4_decay_iter_300.caffemodel'
-    PRETRAINED = caffe_root + '../models/inception21k/inception21k_step2_addacc_iter_2000.caffemodel'
-
+    PRETRAINED = caffe_root + '../models/inception21k/inception21k_alldata_iter_1000.caffemodel'
 
     imh = 224
     imw = 224
@@ -81,7 +79,7 @@ print 'Using model: ', PRETRAINED
 print 'imh: ', imh, 'imw', imw
 
 
-test_dir = '../AFEW_Detect/Val/'
+test_dir = '../AFEW_Detect/Train/'
 
 
 
