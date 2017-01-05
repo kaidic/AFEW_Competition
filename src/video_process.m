@@ -5,7 +5,7 @@ function ret_val = video_process(filestr)
 
     %% Initialization
     %path to be added
-    caffe_path = '/home/sensetime/Documents/caffe/matlab';
+    caffe_path = './caffe/matlab';
     mtcnn_path = './MTCNN_face_detection_alignment/code/codes/MTCNNv2';
     pdollar_toolbox_path = './toolbox';
     caffe_model_path = './MTCNN_face_detection_alignment/code/codes/MTCNNv2/model';
@@ -47,7 +47,7 @@ function ret_val = video_process(filestr)
     load(fullfile(filePath, [fileName, '.mat']));
     
     %% Face Detection
-    img_size = 227;
+    img_size = 224;
     detected_imgs = zeros(img_size, img_size, 3, ceil(length(video.frames)/2));
     detected = 0;
     for i = 1: 2 :length(video.frames)
@@ -96,16 +96,17 @@ function ret_val = video_process(filestr)
     clip_len = 15;
     clip_imgs = zeros(img_size, img_size, 3, clip_len);
     for i = 1: clip_len
-        pos = round((detected - 1) * i / clip_len) + 1;
+        pos = round((detected - 1) * (i - 1) / clip_len) + 1;
         clip_imgs(:, :, :, i) = detected_imgs(: , :, :, pos);
     end
+
     clip_imgs = clip_imgs - 129;
     clip_marker = ones([1, 1, 1, clip_len]);
     clip_marker(1) = 0;
 
     %% alex_lstm
-    prototxt_dir = './model/alexnet_lstm_deploy.prototxt';
-    model_dir = './model/alexnet_lstm_1024_iter_700.caffemodel';
+    prototxt_dir = './model/inception21k_lstm_deploy.prototxt';
+    model_dir = './model/inception21k_lstm_all_iter_3600.caffemodel';
     net = caffe.Net(prototxt_dir, model_dir, 'test');
 
     input_blob = {clip_imgs, clip_marker};

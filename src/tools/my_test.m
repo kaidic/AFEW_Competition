@@ -1,3 +1,4 @@
+
 %% My test function on whole validation dataset
 % Coded by Kaidi Cao
 
@@ -22,3 +23,5 @@ for tmp_class = 1 : 7
         end
     end
 end
+
+save all.mat;
