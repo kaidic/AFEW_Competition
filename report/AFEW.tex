@@ -210,16 +210,17 @@ Inception AFEW & 44.06 & 37.43 \\
 
 \end{table}
 
+Then we combine two domain models of best performance by fusion. We selected a value of $t$ as $0.22$, it could be seen from the figure that a relatively small $t$ ranges from $0.1$ to $0.3$ will usually have a facilitation effect.
 
-
-\begin{figure}[t]
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[width = 8cm]{pic/t_selection.eps}
 	\caption{t selection curve}
 \end{figure}
 
+Here we perform our best result on validation set. We achieved an accuracy level of \textbf{47.23 \%}. From the confusion matrix we could see that the result is quite convincing, basically our model gives results to each class, though there are still some classes that this model performs not quite well.
 
-\begin{figure}[t]
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[width = 8cm]{pic/res_confusion.eps}
 	\caption{confusion matrix}
@@ -227,6 +228,28 @@ Inception AFEW & 44.06 & 37.43 \\
 
 \subsection{Run Time Analysis}
 
+We built our deploy version system on Ubuntu 14.04 with a GTX 970 GPU card and CPUs of Intel i7 core. From the table below we can see average time consumption of each part of the system.
+
+\begin{table}[htpb]
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Process} & \textbf{Time Cost Average} \\
+			\hline\hline
+			Video Preprocessing & 1.18s\\
+			Audio Part in All &  0.25s \\
+			CNN-LSTM (load model inside) &  2.88s \\
+			
+			
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{Run time analysys}
+	\label{runtime}
+	
+\end{table}
+
+Note that the two time costing parts will use GPU, which could be largely accelerated while replacing GTX 970 with TITAN X.
 
 \section{Conclusion}
 
