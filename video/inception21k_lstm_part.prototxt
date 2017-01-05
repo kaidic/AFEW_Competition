@@ -1,0 +1,138 @@
+name: "Inception21k"
+layer{
+  name: 'data_test'
+  type: 'Python'
+  top: 'data' # vstack(data_L, data_R)
+  top: 'label'
+  top: 'clip_marker'
+  include {
+    phase: TRAIN
+  }
+  python_param {
+    module: 'DataLayerLSTM_feat' # filename TODO: put in $PYTHONPATH
+    layer: 'DataLayer' # class name
+    # stage: 'train'
+    param_str: "'stage': 'train'\n'imh': 224\n'imw': 224\n'batch_size': 30"
+    # param_str: "'num_persons': 432\n'neg_pos_ratio': 2\n'reset_period': 10\n'ims_per_batch': 256\n'stage': 'train'"
+  }
+
+}
+
+layer{
+  name: 'data_test'
+  type: 'Python'
+  top: 'data' # vstack(data_L, data_R)
+  top: 'label'
+  top: 'clip_marker'
+  include {
+    phase: TEST
+  }
+  python_param {
+    module: 'DataLayerLSTM_feat' # filename TODO: put in $PYTHONPATH
+    layer: 'DataLayer' # class name
+    # stage: 'train'
+    param_str: "'stage': 'val'\n'imh': 224\n'imw': 224\n'batch_size': 30"
+    # param_str: "'num_persons': 432\n'neg_pos_ratio': 2\n'reset_period': 10\n'ims_per_batch': 256\n'stage': 'train'"
+  }
+
+}
+
+
+
+
+layer{
+  name: "reshape-data"
+  type: "Reshape"
+  bottom: "data"
+  top: "gp-reshape"
+  reshape_param{
+    shape{
+      dim: 15
+      dim: 30
+      dim: 1024
+    }
+  }
+}
+layer{
+  name: "reshape-cm"
+  type: "Reshape"
+  bottom: "clip_marker"
+  top: "reshape-cm"
+  reshape_param{
+    shape{
+      dim: 15
+      dim: 30
+    }
+  }
+}
+layer {
+  name: "lstm1"
+  type: "LSTM"
+  bottom: "gp-reshape"
+  bottom: "reshape-cm"
+  top: "lstm1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  recurrent_param {
+    num_output: 512
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "fc8-final"
+  type: "InnerProduct"
+  bottom: "lstm1"
+  top: "fc8-final"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 7
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+    axis: 2
+  }
+}
+
+
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "fc8-final"
+  bottom: "label"
+  top: "accuracy"
+  # include {
+  #   phase: TEST
+  # }
+  accuracy_param {
+    axis: 2
+  }
+}
+
+
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "fc8-final"
+  bottom: "label"
+  softmax_param {
+    axis: 2
+  }
+}
+

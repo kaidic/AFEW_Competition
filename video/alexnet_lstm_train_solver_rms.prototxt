@@ -1,0 +1,23 @@
+# The train/test net protocol buffer definition
+net: "../scripts/alexnet_lstm_all.prototxt"
+test_iter: 6 #263
+test_interval: 20
+test_initialization: true
+max_iter: 10000
+
+display: 20
+average_loss: 20
+
+lr_policy: "fixed"
+base_lr: 0.0001
+type: "RMSProp"
+rms_decay: 0.98
+
+
+weight_decay: 0.0005#0.0005
+
+snapshot: 100
+snapshot_prefix: "../models/lstm/alexnet_lstm_rms"
+solver_mode: GPU
+
+

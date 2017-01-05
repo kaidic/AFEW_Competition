@@ -1,0 +1,21 @@
+# The train/test net protocol buffer definition
+net: "../scripts/smaller/alexnet_train_smaller_afew.prototxt"
+test_iter: 6 #263
+test_interval: 20
+test_initialization: true
+
+display: 20
+average_loss: 20
+
+lr_policy: "step"
+base_lr: 0.0001
+gamma: 0.1
+stepsize: 10000
+max_iter: 30000
+
+momentum: 0.9
+weight_decay: 0.0005#0.0005
+
+snapshot: 500
+snapshot_prefix: "../models/smaller/alexnet_train_smaller_alldata"
+solver_mode: GPU
