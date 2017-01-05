@@ -77,7 +77,7 @@ Thus we found a more state of the art implementation of face detection, named Jo
 			\hline
 		\end{tabular}
 	\end{center}
-	\caption{Detection Results Tested on Val Set}
+	\caption{Detection results tested on Val set}
 \end{table}
 
 Since MTCNN was originally designed to generate detection and alignment result simultaneously, it is quite intuitive to apply affine transformation given 5 facial landmarks.
@@ -101,31 +101,26 @@ In the selection of SVM parameters, we experimented with several types of kernel
 
 \begin{table}[htpb]
    \begin{center}
-      \begin{tabular}{|l|c|}
+      \begin{tabular}{|c|c|}
          \hline
-         Kernel Type & Optimal Accuracy\\
+         \textbf{Kernel Type} & \textbf{Optimal Accuracy}\\
          \hline\hline
-         Linear & $26.6\%$\\
+         Linear & 26.6\\
          \hline
-         Polynomial $d=1$ & $31.3\%$ \\
+         Polynomial $d$=1 & \textbf{31.3} \\
          \hline
-         Polynomial $d=2$ & $24.5\%$ \\
+         Polynomial $d$=2 & 24.5 \\
          \hline
-         Polynomial $d=3$ & $22.7\%$ \\
+         Polynomial $d$=3 & 22.7 \\
          \hline
-         RBF & $16.7\%$ \\
+         RBF & 16.7 \\
          \hline
-         Sigmoid & $16.7\%$ \\
+         Sigmoid & 16.7 \\
          \hline
       \end{tabular}
    \end{center}
-<<<<<<< HEAD
-   \caption{Detection Results Tested on Val Set}
-   
-=======
-   \caption{Optimal SVM Accuracy Tested on Val Set}
+   \caption{Optimal SVM accuracy tested on Val set}
    \label{tableSVM}
->>>>>>> 0fb900c5ef6d956e43e27adb385ade20d7adbb3c
 \end{table}
 
 \section{Model Fusion}
