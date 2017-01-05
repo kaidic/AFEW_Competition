@@ -14,7 +14,7 @@ function final_ret = fun_classification(filestr)
     if length(video_prob) == 1
         final_prob = audio_prob;
     else
-        final_prob = video_prob + 0.2 * audio_prob;
+        final_prob = video_prob + 0.22 * audio_prob;
     end
     
     [num, loc] = max(final_prob);

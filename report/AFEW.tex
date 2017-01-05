@@ -133,13 +133,7 @@ Here's what we do, we performance softmax manipulation on both video and audio o
 Prob_{final} = Prob_{video} + t \times Prob_{video} 
 \end{equation}
 
-We selected the value of $t$ by investigating the performance of $t$ from $0$ to $1$ with a step of $0.01$ and got the curve shown in . From the figure we decided to choose the t value as $t=0.25$. The argmax of $Prob_{final}$ will serve as our final prediction.
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[width = 8cm]{pic/t_selection.eps}
-	\caption{t selection curve}
-\end{figure}
+We selected the value of $t$ by investigating the performance of $t$ from $0$ to $1$ with a step of $0.01$ and got the curve shown in . From the figure we decided to choose the t value as $t=0.22$. The argmax of $Prob_{final}$ will serve as our final prediction.
 
 Another implementation worth clarifying is that our audio model will always have a prediction while the video model will fail to do so if there's not a single face detected by MTCNN. In this case, we'll produce results solely by audio model, which is still higher than random guess. And from Table 1. we can see that this detection model rarely fails. 
 
@@ -189,12 +183,6 @@ It is worth noticing that we adopt many techniques to prevent overfitting. Since
 Firstly we consider the visual part. To dig the best out of our network models, we actually conducted massive experiments. However, due to the length of the report, we only present the best result on videos by mean-pooling here. We show 4 results for both single frames and whole videos in Table \ref{tableResult}. \textbf{Pretrained} refers to the pretrained ImageNet models. \textbf{FER} refers to fine-tuning the pretrained model on FER and test on AFEW. \textbf{AFEW} refers to further fine-tuning the model on AFEW. \textbf{LSTM} refers to adding a LSTM to the CNN after training on AFEW. From the 4 results we can see the improvement in performance step by step.
 
 
-!!!!!!!!!!! CONFUSION MATRIX !!!!!!!!!!!!!!
-
-
-!!!!!!!!!!! FUSION HERE !!!!!!!!!!!!!!
-
-
 
 \begin{table}[t]
 \begin{center}
@@ -213,6 +201,7 @@ Inception AFEW & 44.06 & 37.43 \\
 \textbf{Inception + LSTM} & \textbf{45.38} & \textbf{43.48} \\
 
 
+
 \hline
 \end{tabular}
 \end{center}
@@ -223,6 +212,18 @@ Inception AFEW & 44.06 & 37.43 \\
 
 
 
+\begin{figure}[t]
+	\centering
+	\includegraphics[width = 8cm]{pic/t_selection.eps}
+	\caption{t selection curve}
+\end{figure}
+
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width = 8cm]{pic/res_confusion.eps}
+	\caption{confusion matrix}
+\end{figure}
 
 \subsection{Run Time Analysis}
 
