@@ -45,11 +45,12 @@ EE46\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-   TO BE DONE
+   This paper presents the implementation details of our video-based hybrid emotion recognition network. The proposed approach combines information from video frames and audios, which are processed separately. Video frames are first preprocessed with face detection units and aligned for regularization. AlexNet and LSTM are employed for video feature extraction and learning. For audio, we adopt a non-deep learning approach via SVM, applying OpenSmile for feature extraction. Finally, the output predition vectors of the two streams are synthesized and gives the final prediction.
+
+   The model achieves an validation accuracy of $47.23\%$, while test accuracy is yet to be examined.
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
-\section{Introduction}
 
 \begin{figure*}[htpb]
 	\centering
@@ -57,9 +58,16 @@ EE46\\
 	\caption{Pipeline}
 \end{figure*}
 
+\section{Intorduction}
+
+Automatic emotion recoginition in videos has always been a field of major concern in the field of machine learning, particularly with the advancement of deep learning techniques. Emotion-aware systems are potentially capable of effectively analyzing human emotions and behaviors, and better serve our purposes in all sorts of applications.
+While traditional machine learning methods, typically Support Vector Machines (SVM) are still popular around and continue to be used, deep learning methods which employ the artificial neural network are gaining increasingly wide applications for their impressive capabilities, such as the recent defeat of 50 world-class Go masters to the AI ``master''.
+
+For the specific problem of video-based emotion recognition, an intuitive idea is to exploit both the visual frames and audio waves, and synthesize them together. Therefore as shall be demonstrated in the following sections, we set up two models for frames and audio respectively, with feature extraction and prediction. Please refer to the following sections for details. 
+
 \section{Preprocessing}
 
-As for visual part, it could be easily observed that there exists a large amount of unrelated information such as background, illumination, color, etc. that we humans do not need to reference while deciding a person's emotion. Thus, it would be reasonable that we conduct preprocessing procedure before feeding frames into neural network. Here we perform face detection and face alignment, which is a common process in tasks like face verification.
+For the visual part, it could be easily observed that there exists a large amount of unrelated information such as background, illumination, color, etc. that we humans do not need to reference while deciding a person's emotion. Thus, it would be reasonable that we conduct preprocessing procedure before feeding frames into neural network. Here we perform face detection and face alignment, which is a common process in tasks like face verification.
 
 In face detection part, we tested two open source software. Openface \cite{amos2016openface} is a Python and Torch implementation of face recognition with deep neural networks and is based on the CVPR 2015 paper FaceNet \cite{schroff2015facenet}. A sad news is that its detection toolkit is currently developed on dlib \cite{king2009dlib}, which couldn't support CUDA, resulting in a huge time cost. One remedy we attempted on this software is to use thread pool parallel computing. By applying 8 threads concurrently we are able to compress the detection time of a video clip into 2 seconds or so. However, this software has another big issue that is basically not tolerable, detection recall.
 
@@ -253,9 +261,7 @@ Note that the two time costing parts will use GPU, which could be largely accele
 
 \section{Conclusion}
 
-\section{Acknowledgement}
-
-Lin Ji trained all the image-based caffe models. Yan Jingkai has accomplished audio model. Cao Kaidi is responsible for video preprocessing, model fusion and deployment.
+In this paper, we implemented a network for video-based emotion recognition in the wild, using CNN-LSTM and SVM, as a combination of deep learning and traditional learning methods. The results demonstrate that the combination of the two networks improves the prediction accuracy, which proves the effectiveness of the method.
 
 {\small
 \bibliographystyle{ieee}
