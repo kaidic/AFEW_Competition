@@ -1,3 +1,6 @@
+%% Code for t selection
+% Coded by Kaidi Cao
+
 accu = zeros(1, 100);
 tmp_count = 1;
 for t = 0.01 : 0.01 : 1
